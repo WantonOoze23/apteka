@@ -1,0 +1,28 @@
+/* Стили для кнопки по умолчанию */
+.button {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+/*При наведении */
+.button:hover {
+    background-color: #e74c3c;
+  }
+  
+
+  барр
+  .nav_bar {
+    background-color: rgba(110, 110, 110, 0.5);
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    margin-right: 20px;
+    width: 90%;
+
+}
