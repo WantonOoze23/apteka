@@ -1,0 +1,13 @@
+*{
+    --main-bg-color:  #f8edcf;
+
+}
+
+body{
+    background-color: var(--main-bg-color);
+}
+
+.content{
+    width: 90%;
+    
+}
