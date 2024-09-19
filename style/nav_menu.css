@@ -2,16 +2,12 @@ header{
 	display: none;
 }
 
-h2, h3, a {
-	color: #34495e;
-}
 header ul{
 	margin: 0;
 	padding: 0;	
 	list-style: none;
 	display: inline-block;
 	margin: auto;
-
 }
 
 a {

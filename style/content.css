@@ -1,0 +1,67 @@
+*{
+    --button-color: #34495e; 
+    --button-color-hover: #718daa;
+}
+
+.content{
+    width: 95%;
+    height: fit-content;
+    background-color: var(--content-color);
+    margin: auto;
+    border-radius: 35px;
+    padding: 50px 0 50px 0;
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку */
+    justify-content: flex-start; /* Все элементы выравниваются по левой стороне */
+    gap: 20px; /* Отступы между элементами */
+    padding: 0 10px 0 10px;
+}
+
+/* Для широких экранов 16:9 */
+@media (min-width: 1200px) {
+    .container {
+        width: calc(20% - 20px); /* 5 элементов в строку */
+    }
+}
+
+/* Для средних экранов (планшеты, небольшие ноутбуки) */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .container {
+        width: calc(25% - 20px); /* 4 элемента в строку */
+    }
+}
+
+/* Для телефонов и маленьких экранов */
+@media (max-width: 767px) {
+    .container {
+        width: calc(33.33% - 20px); /* 3 элемента в строку */
+    }
+}
+
+.container {
+    display: block;
+    border: black solid 1px;
+    color: var(--main-text-color);
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.container img{
+    width: 100%;
+}
+
+.container button{
+    width: 50%;
+    margin: auto;
+    border-radius: 5px;
+    border: 0px;
+    background-color: var(--button-color);
+}
+
+.container button:hover{
+    background-color: var(--button-color-hover);
+}

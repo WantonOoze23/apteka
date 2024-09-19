@@ -1,13 +1,21 @@
 *{
     --main-bg-color:  #f8edcf;
+    --content-color: #3b3b3b;
+    --main-text-color:  #ffffff;
 
+    
+}
+*:hover{
+    transition: background-color 200ms, color 200ms;
 }
 
 body{
     background-color: var(--main-bg-color);
+    margin: 0 0 0 0;
 }
 
-.content{
-    width: 90%;
-    
+footer{
+    background-color: black;
+    color: var(--main-text-color);
+    margin-top: 10px;
 }
