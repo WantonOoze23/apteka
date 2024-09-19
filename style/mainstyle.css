@@ -9,6 +9,12 @@
     transition: background-color 200ms, color 200ms;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 body{
     background-color: var(--main-bg-color);
     margin: 0 0 0 0;
@@ -17,5 +23,8 @@ body{
 footer{
     background-color: black;
     color: var(--main-text-color);
+    margin-top: 10px;
+    margin: 0;
+    padding: 0;
     margin-top: 10px;
 }

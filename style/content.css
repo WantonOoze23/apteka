@@ -1,6 +1,7 @@
 *{
     --button-color: #34495e; 
     --button-color-hover: #718daa;
+    border: 1px green solid;
 }
 
 .content{
@@ -17,29 +18,15 @@
     flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку */
     justify-content: flex-start; /* Все элементы выравниваются по левой стороне */
     gap: 20px; /* Отступы между элементами */
-    padding: 0 10px 0 10px;
+    padding: auto;
+    margin: auto;
 }
 
-/* Для широких экранов 16:9 */
-@media (min-width: 1200px) {
-    .container {
-        width: calc(20% - 20px); /* 5 элементов в строку */
-    }
+.container {
+    width: calc(20% - 20px); /* 6 элементов в строку */
 }
 
-/* Для средних экранов (планшеты, небольшие ноутбуки) */
-@media (max-width: 1199px) and (min-width: 768px) {
-    .container {
-        width: calc(25% - 20px); /* 4 элемента в строку */
-    }
-}
 
-/* Для телефонов и маленьких экранов */
-@media (max-width: 767px) {
-    .container {
-        width: calc(33.33% - 20px); /* 3 элемента в строку */
-    }
-}
 
 .container {
     display: block;
@@ -56,7 +43,6 @@
 
 .container button{
     width: 50%;
-    margin: auto;
     border-radius: 5px;
     border: 0px;
     background-color: var(--button-color);
@@ -64,4 +50,35 @@
 
 .container button:hover{
     background-color: var(--button-color-hover);
+}
+
+
+/* Для средних экранов (планшеты, небольшие ноутбуки) */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .content{
+        width: 100%;
+        border-radius: 0;
+    }
+    .container {
+        width: calc(25% - 20px); /* 4 элемента в строку */
+    }
+}
+
+/* Для телефонов и маленьких экранов */
+@media (max-width: 767px) {
+    .content{
+        width: 100%;
+        border-radius: 0;
+    }
+    .container {
+        width: calc(33.33% - 20px); /* 3 элемента в строку */
+    }
+
+    /* Кнопка должна занимать 100% ширины и быть по центру */
+    .container button {
+        width: 100%; /* 100% ширины кнопки */
+        padding: 10px;
+        margin: 0 auto; /* Центрирование кнопки */
+        display: block; /* Обеспечивает, что margin будет работать */
+    }
 }
