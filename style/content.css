@@ -26,8 +26,6 @@
     width: calc(20% - 20px); /* 6 элементов в строку */
 }
 
-
-
 .container {
     display: block;
     border: black solid 1px;
@@ -42,10 +40,12 @@
 }
 
 .container button{
-    width: 50%;
+    width: 100%;
     border-radius: 5px;
     border: 0px;
     background-color: var(--button-color);
+    padding: 10px;
+    margin: 0 auto; /* Центрирование кнопки */
 }
 
 .container button:hover{

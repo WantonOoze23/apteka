@@ -2,8 +2,9 @@
     --main-bg-color:  #f8edcf;
     --content-color: #3b3b3b;
     --main-text-color:  #ffffff;
+    --footer-a-color: cornsilk;
+    --footer-a-olor-hover:  darkred;
 
-    
 }
 *:hover{
     transition: background-color 200ms, color 200ms;
@@ -27,4 +28,12 @@ footer{
     margin: 0;
     padding: 0;
     margin-top: 10px;
+}
+
+footer a{
+    color: var(--footer-a-color);
+}
+
+footer a:hover{
+    color: var(--footer-a-olor-hover);
 }
