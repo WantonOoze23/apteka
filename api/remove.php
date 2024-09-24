@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($id === -100) {
         // Якщо введено -100, видаляємо всі записи з таблиці та відповідні зображення
-        $sql = "SELECT image FROM dogs"; // Отримуємо всі назви файлів зображень
+        $sql = "SELECT image FROM animals"; // Отримуємо всі назви файлів зображень
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Видаляємо всі записи з таблиці
-        $sql = "DELETE FROM dogs"; // Заміни dogs на потрібну таблицю
+        $sql = "DELETE FROM animals"; // Заміни animals на потрібну таблицю
         if ($conn->query($sql) === TRUE) {
             echo json_encode(['success' => true, 'message' => "Всі товари та зображення успішно видалено."]);
         } else {
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         // Спочатку отримуємо назву зображення за ID
-        $sql = "SELECT image FROM dogs WHERE id = ?";
+        $sql = "SELECT image FROM animals WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
 
         // Видаляємо товар за конкретним ID
-        $sql = "DELETE FROM dogs WHERE id = ?";
+        $sql = "DELETE FROM animals WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id);
 

@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-            $sql = "INSERT INTO dogs (name, image, description, price, category, producer,  animal)
+            $sql = "INSERT INTO animals (name, image, description, price, category, producer,  animal)
 
                     VALUES ('$name', '$target_file', '$description', '$price', '$category', '$producer',  '$animal')";
 
