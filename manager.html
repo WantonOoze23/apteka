@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Додати </title>
-    <link rel="stylesheet" href="style/form.css">
+    <link rel="stylesheet" type="text/css" href="style/form.css">
 </head>
 <body>
     <header>
@@ -77,17 +77,15 @@
             </form>
 
         </section>
-
-        <section>
+    
+        <section id="output_form"> 
             <h2>Форма видалення </h2>
             <form id="deleteCarForm">
                 <label for="id">ID :</label>
                 <input type="number" id="id" name="id" required>
                 <button type="submit">Видалити </button>
             </form>
-        </section>
 
-        <section>
             <div class="filter">
                 <label for="animal">Фільтр:</label>
                 <select id="filterAnimal" name="animal">

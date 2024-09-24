@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Получаем параметр animal из URL
     const urlParams = new URLSearchParams(window.location.search);
-    const selectedAnimal = urlParams.get('animal') || 'dog'; // По умолчанию 'dog', если параметр не задан
+    const selectedAnimal = urlParams.get('animal'); // По умолчанию 'dog', если параметр не задан
 
     fetchProducts(selectedAnimal); // Загружаем товары для выбранного животного
 

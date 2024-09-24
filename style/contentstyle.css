@@ -38,6 +38,15 @@
     text-align: right;
 }
 
+.container p {
+    max-height: 50px; /* Обмеження висоти */
+    overflow: hidden; /* Сховати все, що виходить за межі */
+    text-overflow: ellipsis; /* Додати три крапки, якщо текст обрізається */
+    display: -webkit-box; /* Для використання з флексбоксами */
+    -webkit-line-clamp: 3; /* Кількість рядків для відображення */
+    -webkit-box-orient: vertical; /* Вертикальна орієнтація */
+}
+
 .container img{
     width: 100%;
 }
