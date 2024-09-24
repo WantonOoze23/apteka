@@ -1,5 +1,5 @@
 
-let timeoutMinutes = 60; // Час в хвилинах до закінчення сесії
+let timeoutMinutes = 5; // Час в хвилинах до закінчення сесії
 let checkInterval = 60000; // Перевіряємо сесію кожну хвилину (60000 мс)
 let sessionTimeout = timeoutMinutes * 60000; // Переводимо в мілісекунди
 

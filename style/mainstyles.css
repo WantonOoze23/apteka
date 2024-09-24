@@ -1,0 +1,93 @@
+*{
+    --main-bg-color:  #f8edcf;
+    --content-color: #3b3b3b;
+    --main-text-color:  #ffffff;
+    --footer-a-color: cornsilk;
+    --footer-a-olor-hover:  darkred;
+
+}
+*:hover{
+    transition: background-color 200ms, color 200ms;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body{
+    background-color: var(--main-bg-color);
+    margin: 0 0 0 0;
+}
+
+.warp{
+    width: 95%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+
+.content{
+    background-color: var(--content-color);
+    margin: auto;
+    color: #ffffff;
+    margin-top: 50px;
+    border-radius: 35px 35px;
+    padding: 50px 0 50px 0;
+}
+
+.aboutus{
+    background-color: black;
+    border-radius: 35px;
+    padding: 30px;
+    color:#ffffff;
+}
+.google_src {
+    display: flex;
+    justify-content: space-between; /* Розміщення елементів зліва та справа */
+    margin-bottom: 20px; /* Відступ знизу */
+}
+
+.contact_form {
+    flex: 1; /* Займає 1 частину простору */
+    padding-right: 20px; /* Відступ з правого боку */
+}
+
+.info_about {
+    flex: 2; /* Займає 2 частини простору */
+    padding-left: 20px; /* Відступ з лівого боку */
+}
+
+.contact_form form {
+    display: flex;
+    flex-direction: column; /* Вертикальне розташування елементів */
+}
+
+.contact_form input {
+    padding: 10px; /* Внутрішній відступ */
+    border-radius: 5px; /* Закруглені краї */
+    border: 1px solid #ccc; /* Сіра рамка */
+    margin-top: 10px; /* Відступ зверху */
+}
+
+.contact_form input::placeholder {
+    color: #aaa; /* Колір тексту в плейсхолдері */
+}
+
+footer{
+    background-color: black;
+    color: var(--main-text-color);
+    margin-top: 10px;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}
+
+footer a{
+    color: var(--footer-a-color);
+}
+
+footer a:hover{
+    color: var(--footer-a-olor-hover);
+}
