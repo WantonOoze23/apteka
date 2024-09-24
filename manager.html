@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Додати </title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/cars-details.css">
 </head>
 <body>
     <header>
@@ -46,6 +45,17 @@
                     <option value="accessories">Аксесуари</option>
                 </select>
 
+                <label for="animal">Тварина</label>
+                <select id="animal" name="animal" required>
+                    <option value="">Виберіть значення</option>
+                    <option value="dog">Собаки</option>
+                    <option value="cat">Коти</option>
+                    <option value="bird">Птахи</option>
+                    <option value="fish">Риби</option>
+                    <option value="roudants">Гризуни</option>
+                    <option value="others">Інші</option>
+                </select>
+
                 <label for="image">Зображення:</label>
                 <input type="file" id="image" name="image" accept="image/*" required><br>
         
@@ -75,6 +85,7 @@
                         <th>Категорія</th>
                         <th>Опис</th>
                         <th>Ціна</th>
+                        <th>Тварина</th>
                     </tr>
                 </thead>
                 <tbody id="TableBody">
@@ -86,6 +97,6 @@
 
     <script src="script/add-product.js"></script>
     <script src="script/remove.js"></script>
-    <script src="script/list.js"></script>
+    <script src="script/getList.js"></script>
 </body>
 </html>

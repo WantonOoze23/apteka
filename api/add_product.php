@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $price = $conn->real_escape_string($_POST['price']);
     $category = $conn->real_escape_string($_POST['category']);
     $producer = $conn->real_escape_string($_POST['producer']);
+    $animal = $conn->real_escape_string($_POST['animal']);
 
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $target_dir = "../images/";
@@ -36,8 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-            $sql = "INSERT INTO dogs (name, image, description, price, category, producer)
-                    VALUES ('$name', '$target_file', '$description', '$price', '$category', '$producer')";
+            $sql = "INSERT INTO dogs (name, image, description, price, category, producer,  animal)
+
+                    VALUES ('$name', '$target_file', '$description', '$price', '$category', '$producer',  '$animal')";
+
 
             if ($conn->query($sql) === TRUE) {
                 echo json_encode(['success' => true]);

@@ -13,7 +13,8 @@ if ($conn->connect_error) {
 }
 
 // Запит для вибору всіх товарів
-$sql = "SELECT id, name, image, description, price, category, producer FROM dogs";
+$sql = "SELECT id, name, image, description, price, category, producer, animal FROM dogs";
+
 $result = $conn->query($sql);
 
 $products = array();

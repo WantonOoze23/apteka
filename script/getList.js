@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>${product.category}</td> <!-- Відображаємо категорію -->
                     <td>${product.description}</td> <!-- Додаємо опис -->
                     <td>${product.price} грн</td>
+                    <td>${product.animal || 'Не вказано'}</td>
                 `;
                 tableBody.appendChild(row);
             });
