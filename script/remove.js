@@ -10,7 +10,7 @@ document.getElementById('deleteCarForm').addEventListener('submit', function(eve
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert("Товар успішно видалено.");
+            alert(data.message || "Товар успішно видалено.");
             window.location.reload(); // Перезавантажуємо сторінку, щоб оновити список товарів
         } else {
             alert('Сталася помилка: ' + (data.error || 'Невідомий помилковий стан'));

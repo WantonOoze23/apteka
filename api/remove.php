@@ -16,23 +16,61 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = intval($_POST['id']); // Отримуємо ID з POST-запиту
 
-    // Запит на видалення товару
-    $sql = "DELETE FROM dogs WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
+    if ($id === -100) {
+        // Якщо введено -100, видаляємо всі записи з таблиці та відповідні зображення
+        $sql = "SELECT image FROM dogs"; // Отримуємо всі назви файлів зображень
+        $result = $conn->query($sql);
 
-    // Виконання запиту
-    if ($stmt->execute()) {
-        if ($stmt->affected_rows > 0) {
-            echo json_encode(['success' => true]);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Видаляємо файли з папки images/
+                $imagePath = '../images/' . $row['image'];
+                if (file_exists($imagePath)) {
+                    unlink($imagePath); // Видаляємо файл
+                }
+            }
+        }
+
+        // Видаляємо всі записи з таблиці
+        $sql = "DELETE FROM dogs"; // Заміни dogs на потрібну таблицю
+        if ($conn->query($sql) === TRUE) {
+            echo json_encode(['success' => true, 'message' => "Всі товари та зображення успішно видалено."]);
         } else {
-            echo json_encode(['success' => false, 'error' => "Товар не знайдено."]);
+            echo json_encode(['success' => false, 'error' => "Помилка при видаленні всіх товарів: " . $conn->error]);
         }
     } else {
-        echo json_encode(['success' => false, 'error' => $stmt->error]);
-    }
+        // Спочатку отримуємо назву зображення за ID
+        $sql = "SELECT image FROM dogs WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->bind_result($image);
+        $stmt->fetch();
+        $stmt->close();
 
-    $stmt->close();
+        // Видаляємо товар за конкретним ID
+        $sql = "DELETE FROM dogs WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+
+        // Виконання запиту
+        if ($stmt->execute()) {
+            if ($stmt->affected_rows > 0) {
+                // Видаляємо файл зображення
+                $imagePath = '../images/' . $image;
+                if (file_exists($imagePath)) {
+                    unlink($imagePath); // Видаляємо файл
+                }
+                echo json_encode(['success' => true, 'message' => "Товар та зображення успішно видалено."]);
+            } else {
+                echo json_encode(['success' => false, 'error' => "Товар не знайдено."]);
+            }
+        } else {
+            echo json_encode(['success' => false, 'error' => $stmt->error]);
+        }
+
+        $stmt->close();
+    }
 }
 
 $conn->close();
