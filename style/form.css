@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+#addProduct{
+    margin: 0;
+    padding-left: 100px;
+    background-color: black;
+    color:aliceblue;
+}
+
