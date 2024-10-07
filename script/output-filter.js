@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Получаем параметр animal из URL
     const urlParams = new URLSearchParams(window.location.search);
-    const selectedAnimal = urlParams.get('animal'); // По умолчанию 'dog', если параметр не задан
-
+    const selectedAnimal = urlParams.get('animal'); 
+    
     fetchProducts(selectedAnimal); // Загружаем товары для выбранного животного
 
     function fetchProducts(animal) {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 const productsContainer = document.getElementById('productsContainer');
                 productsContainer.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
-
+                console.log(data);
                 data.forEach(product => {
                     const productDiv = document.createElement('div');
                     productDiv.classList.add('container');
