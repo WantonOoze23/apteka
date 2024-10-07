@@ -12,20 +12,49 @@ if ($conn->connect_error) {
     die("Помилка підключення: " . $conn->connect_error);
 }
 
-// Отримуємо параметр 'animal' з запиту
+// Отримуємо параметри з запиту
 $animal = isset($_GET['animal']) ? $_GET['animal'] : '';
+$types = isset($_GET['types']) ? explode(',', $_GET['types']) : [];
+$companies = isset($_GET['companies']) ? explode(',', $_GET['companies']) : [];
 
-// Створюємо запит з фільтрацією, якщо вибрано тварину
-$sql = "SELECT id, name, image, description, price, category, producer, animal FROM animals";
+// Базовий SQL-запит
+$sql = "SELECT id, name, image, description, price, category, producer, animal FROM animals WHERE 1=1";
+
+// Фільтрація по тварині
 if ($animal) {
-    $sql .= " WHERE animal = ?";
+    $sql .= " AND animal = ?";
+}
+
+// Фільтрація по типу товару
+if (!empty($types)) {
+    $placeholders = implode(',', array_fill(0, count($types), '?'));
+    $sql .= " AND category IN ($placeholders)";
+}
+
+// Фільтрація по виробнику
+if (!empty($companies)) {
+    $placeholders = implode(',', array_fill(0, count($companies), '?'));
+    $sql .= " AND producer IN ($placeholders)";
 }
 
 $stmt = $conn->prepare($sql);
 
+// Масив для зберігання параметрів
+$params = [];
 if ($animal) {
-    $stmt->bind_param("s", $animal);
+    $params[] = $animal;
 }
+if (!empty($types)) {
+    $params = array_merge($params, $types);
+}
+if (!empty($companies)) {
+    $params = array_merge($params, $companies);
+}
+
+// Динамічне прив'язування типів змінних
+// Зміна на 's' для кожного параметра
+$types_string = str_repeat('s', count($params));
+$stmt->bind_param($types_string, ...$params);
 
 $stmt->execute();
 $result = $stmt->get_result();

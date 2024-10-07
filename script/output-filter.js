@@ -1,17 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Получаем параметр animal из URL
     const urlParams = new URLSearchParams(window.location.search);
-    const selectedAnimal = urlParams.get('animal'); 
-    
+    const selectedAnimal = urlParams.get('animal') || 'dog'; // По умолчанию 'dog', если параметр не задан
+
     fetchProducts(selectedAnimal); // Загружаем товары для выбранного животного
 
-    function fetchProducts(animal) {
-        fetch(`../api/products.php?animal=${animal}`) // Запрос на сервер с переданным параметром
+    document.getElementById('applyFilters').addEventListener('click', () => {
+        const selectedTypes = Array.from(document.querySelectorAll('.filter-type:checked')).map(checkbox => checkbox.value);
+        const selectedProducers = Array.from(document.querySelectorAll('.filter-producer:checked')).map(checkbox => checkbox.value);
+
+        fetchProducts(selectedAnimal, selectedTypes, selectedProducers); // Загружаем товары с фильтрами
+    });
+
+    function fetchProducts(animal, types = [], producers = []) {
+        const typeParam = types.length ? `&types=${types.join(',')}` : '';
+        const producerParam = producers.length ? `&companies=${producers.join(',')}` : ''; // Changed parameter name to companies
+
+        fetch(`../api/products.php?animal=${animal}${typeParam}${producerParam}`) // Запрос на сервер с переданными параметрами
             .then(response => response.json())
             .then(data => {
                 const productsContainer = document.getElementById('productsContainer');
                 productsContainer.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
-                console.log(data);
+
                 data.forEach(product => {
                     const productDiv = document.createElement('div');
                     productDiv.classList.add('container');
