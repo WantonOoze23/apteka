@@ -39,7 +39,20 @@ a {
     text-decoration: none;
 }
 
+.logo{
+    padding: 10px 15px;
+    text-transform: uppercase;
+    color: #34495e;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
 .main-nav a:hover {
+	color: #718daa;
+}
+
+.logo:hover {
 	color: #718daa;
 }
 
