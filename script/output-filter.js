@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Обработчик события для кнопки фильтра
     const filterToggle = document.querySelector('.filter-toggle');
     const leftSideFilter = document.querySelector('.left-side-filter');
 
@@ -58,9 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (leftSideFilter.style.display === 'block') {
             leftSideFilter.style.display = 'none';
             filterToggle.textContent = 'Показати фільтри'; // Изменение текста на "Показать фильтры"
+            filterToggle.classList.remove('is-active'); // Убираем активный класс
         } else {
             leftSideFilter.style.display = 'block';
             filterToggle.textContent = 'Закрити фільтр'; // Изменение текста на "Закрыть"
+            filterToggle.classList.add('is-active'); // Добавляем активный класс
         }
 
         // Плавный переход

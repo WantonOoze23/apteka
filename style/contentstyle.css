@@ -60,8 +60,11 @@
     -webkit-box-orient: vertical; /* Вертикальна орієнтація */
 }
 
-.container img{
-    width: 100%;
+.container img {
+    width: 100%; /* Убедитесь, что изображение занимает всю ширину контейнера */
+    height: 200px; /* Фиксированная высота для изображений */
+    object-fit: cover; /* Сохранение пропорций и обрезка излишков */
+    object-position: center; /* Центрирование изображения */
 }
 
 /* Стили для кнопки "Купити" */
@@ -78,9 +81,7 @@
     margin-top: auto; /* Сдвинуть кнопку вниз */
 }
 
-.add-to-cart:hover {
-    background-color: var(--button-color-hover); /* Изменение цвета при наведении */
-}
+
 
 .filter-toggle {
     width: 100%; /* Задает ширину 100% от родительского контейнера */
@@ -96,15 +97,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для создания эффекта подъема */
 }
 
-.filter-toggle:hover {
-    background-color: var(--button-color-hover); /* Цвет фона при наведении */
-    transform: translateY(-2px); /* Подъем кнопки при наведении */
-}
 
-.filter-toggle:active {
-    transform: translateY(1px); /* Небольшое смещение вниз при нажатии */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Уменьшение тени при нажатии */
-}
+
+
 
 #filter-section{
     width: calc(20% - 20px); /* Фіксована ширина для настільних версій */
@@ -147,9 +142,7 @@
     margin-right: 10px; /* Відступ справа від чекбокса */
 }
 
-.left-side-filter label:hover {
-    color: #34495e; /* Зміна кольору при наведенні */
-}
+
 
 #applyFilters {
     width: 100%; /* Ширина кнопки 100% */
@@ -164,9 +157,7 @@
     transition: background-color 0.3s; /* Плавний перехід */
 }
 
-#applyFilters:hover {
-    background-color: #718daa; /* Зміна кольору при наведенні */
-}
+
 
 .hidden {
     display: none; /* Сховати елемент */
@@ -179,16 +170,17 @@
         border-radius: 0;
     }
     .container {
-        width: calc(25% - 20px); /* 4 элемента в строку */
+        width: calc(33.33% - 20px); /* 4 элемента в строку */
     }
     #filter-section{
-        width: calc(25% - 20px);
+        width: calc(33.33% - 20px);
     }
 }
 
 /* Для телефонов и маленьких экранов */
 @media (max-width: 767px) {
     .content {
+        display: block;
         width: 100%;
         border-radius: 0;
     }
@@ -216,8 +208,34 @@
         border-radius: 5px; /* Закругленные края */
         cursor: pointer; /* Изменение курсора на указатель */
     }
+}
 
+@media(hover: hover){
     .filter-toggle:hover {
         background-color: #718daa; /* Изменение цвета при наведении */
+    }
+    .left-side-filter label:hover {
+        color: #34495e; /* Зміна кольору при наведенні */
+    }
+    #applyFilters:hover {
+        background-color: #718daa; /* Зміна кольору при наведенні */
+    }
+    .filter-toggle:hover {
+        background-color: var(--button-color-hover); /* Цвет фона при наведении */
+        transform: translateY(-2px); /* Подъем кнопки при наведении */
+    }
+    .add-to-cart:hover {
+        background-color: var(--button-color-hover); /* Изменение цвета при наведении */
+    }
+}
+
+@media(hover: none){
+    .filter-toggle:active,
+    .add-to-cart:active {
+        background-color: var(--button-color-hover); /* Цвет при нажатии */
+    }
+    .filter-toggle:active, .filter-toggle.is-active  {
+        transform: translateY(1px); /* Небольшое смещение вниз при нажатии */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Уменьшение тени при нажатии */
     }
 }
