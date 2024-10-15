@@ -175,6 +175,21 @@
     #filter-section{
         width: calc(33.33% - 20px);
     }
+    .left-side-filter {
+        position:relative; /* Закріплення фільтра */
+
+    }
+    .left-side-filter h4 {
+        font-size: 1.8em; /* Увеличение размера заголовка фильтра */
+    }
+
+    .left-side-filter h5 {
+        font-size: 1.5em; /* Увеличение размера подзаголовка фильтра */
+    }
+
+    .left-side-filter label {
+        font-size: 1.2em; /* Увеличение размера текста для меток фильтров */
+    }
 }
 
 /* Для телефонов и маленьких экранов */
@@ -208,7 +223,22 @@
         border-radius: 5px; /* Закругленные края */
         cursor: pointer; /* Изменение курсора на указатель */
     }
+    .left-side-filter h4 {
+        font-size: 1.8em; /* Увеличение размера заголовка фильтра */
+    }
+
+    .left-side-filter h5 {
+        font-size: 1.5em; /* Увеличение размера подзаголовка фильтра */
+    }
+
+    .left-side-filter label {
+        font-size: 1.2em; /* Увеличение размера текста для меток фильтров */
+    }
 }
+
+
+
+
 
 @media(hover: hover){
     .filter-toggle:hover {
