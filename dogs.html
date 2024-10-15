@@ -6,12 +6,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="style/mainstyles.css?v=1.1">
-	<link rel="stylesheet" href="style/nav_menu.css?v=1.1">
-	<link rel="stylesheet" href="style/contentstyle.css?v=1.1">
+	<link rel="stylesheet" href="style/mainstyles.css?v=1.2">
+	<link rel="stylesheet" href="style/nav_menu.css?v=1.2">
+	<link rel="stylesheet" href="style/contentstyle.css?v=1.3">
 
-	<script src="script/output-filter.js"></script>
-
+	<script src="script/output-filter.js?v=1.1"></script>
+	
 	<title>Собачки</title>
 
 
@@ -20,7 +20,9 @@
 	<header class="header">
 		<a href="index.html" class="logo">VetApteka</a>
 		
-		<ul class="main-nav">
+		<button class="menu-toggle" id="menuToggle">☰</button> <!-- Кнопка для открытия меню -->
+		
+		<ul class="main-nav" id="navMenu">
 			<li><a href="dogs.html?animal=dog" class="nav_btn" id="dogs_link">Собаки</a></li>
 			<li><a href="cats.html?animal=cat" class="nav_btn" id="cats_link">Коти</a></li>
 			<li><a href="rodents.html?animal=rodent" class="nav_btn" id="rodents_link">Гризуни</a></li>
@@ -29,8 +31,8 @@
 			<li><a href="others.html?animal=other" class="nav_btn" id="others_link">Інші</a></li>
 			<li><a href="manager.html" class="nav_btn" id="login">Кабінет</a></li>
 		</ul>
-		
-	</header> 
+	</header>
+	
 	
 	<section class="product-wraper">
 		<div class="content">
@@ -73,9 +75,6 @@
 		</div>
 	</section>
 	
-
-		
-	
 	<footer>
 		<div class="social_media_link">
 			
@@ -89,6 +88,7 @@
 
 	</footer>
 	
+	<script src="script/navigation.js?v=1.2"></script>
 </body>
 </html>
 

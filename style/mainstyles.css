@@ -100,3 +100,12 @@ footer a{
 footer a:hover{
     color: var(--footer-a-color-hover);
 }
+
+
+@media(hover: hover){
+    
+}
+
+@media(hover: none){
+    
+}
