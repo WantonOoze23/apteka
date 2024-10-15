@@ -31,22 +31,12 @@
 
 .container {
     width: calc(20% - 20px); /* 5 элементов в строку */
-
     display: block;
     border: black solid 1px;
     color: var(--main-text-color);
     padding: 10px;
     box-sizing: border-box;
-    text-align: right;
-}
-
-.container {
-    display: block;
-    border: black solid 1px;
-    color: var(--main-text-color);
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: right;
+    text-align: left;
     flex-direction: column; /* Позволяет вертикально располагать элементы */
     justify-content: space-between; /* Размещает элементы так, чтобы кнопка была внизу */
 }

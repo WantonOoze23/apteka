@@ -5,9 +5,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="stylesheet" href="style/mainstyles.css?v=1">
-	<link rel="stylesheet" href="style/nav_menu.css?v=1">
-	<link rel="stylesheet" href="style/contentstyle.css?v=1">
+	<link rel="stylesheet" href="style/mainstyles.css?v=1.4">
+	<link rel="stylesheet" href="style/nav_menu.css?v=1.4">
+	<link rel="stylesheet" href="style/contentstyle.css?v=1.4">
+
+	<script src="script/output-filter.js?v=1.2"></script>
 
     <title>Коти</title>
 
@@ -17,27 +19,60 @@
 	<header class="header">
 		<a href="index.html" class="logo">VetApteka</a>
 		
-		<ul class="main-nav">
+		<button class="menu-toggle" id="menuToggle">☰</button> <!-- Кнопка для открытия меню -->
+		
+		<ul class="main-nav" id="navMenu">
 			<li><a href="dogs.html?animal=dog" class="nav_btn" id="dogs_link">Собаки</a></li>
 			<li><a href="cats.html?animal=cat" class="nav_btn" id="cats_link">Коти</a></li>
 			<li><a href="rodents.html?animal=rodent" class="nav_btn" id="rodents_link">Гризуни</a></li>
 			<li><a href="birds.html?animal=bird" class="nav_btn" id="birds_link">Птахи</a></li>
 			<li><a href="fish.html?animal=fish" class="nav_btn" id="fish_link">Риби</a></li>
 			<li><a href="others.html?animal=other" class="nav_btn" id="others_link">Інші</a></li>
+			<li><a href="manager.html" class="nav_btn" id="login">Кабінет</a></li>
 		</ul>
-		
-	</header> 
+	</header>
 	
-	<section>
+	
+	<section class="product-wraper">
 		<div class="content">
-			<div class="left-side-filter"></div>
+
+			<section id="filter-section">
+			<button class="filter-toggle">Показати фільтри</button>
+			<div class="left-side-filter">
+				<div id="filterMenu" class="filter-menu">
+					<div>
+						<h5>Тип товару:</h5>
+						<label><input type="checkbox" value="feed" class="filter-type"> Корм</label><br>
+						<label><input type="checkbox" value="vaccine" class="filter-type"> Вакцина</label><br>
+						<label><input type="checkbox" value="medecine" class="filter-type"> Ліки</label><br>
+						<label><input type="checkbox" value="sweties" class="filter-type"> Смаколики</label><br>
+						<label><input type="checkbox" value="vitamins" class="filter-type"> Вітаміни</label><br>
+						<label><input type="checkbox" value="accessories" class="filter-type"> Аксесуари</label>
+					</div>
+	
+					<div>
+						<h5>Виробники:</h5>
+						<label><input type="checkbox" value="Royal" class="filter-producer"> Royal</label><br>
+						<label><input type="checkbox" value="Producer 2" class="filter-producer"> Producer 2</label><br>
+						<label><input type="checkbox" value="Producer 3" class="filter-producer"> Producer 3</label><br>
+						<label><input type="checkbox" value="Producer 4" class="filter-producer"> Producer 4</label><br>
+						<label><input type="checkbox" value="Producer 5" class="filter-producer"> Producer 5</label><br>
+						<label><input type="checkbox" value="Producer 6" class="filter-producer"> Producer 6</label>
+					</div>
+	
+					<button id="applyFilters">Застосувати фільтри</button>
+				</div>
+			</div>
+
+			</section>
+			
+			
+
 			<div class="products-container" id="productsContainer">
 				<!-- Здесь будут динамически загруженные товары -->
 			</div>
 		</div>
 	</section>
-
-		
 	
 	<footer>
 		<div class="social_media_link">
@@ -52,8 +87,8 @@
 
 	</footer>
 	
-	<script src="script/output-filter.js"></script>
-
+	<button id="scrollToTop" class="scroll-to-top">↑</button>
+	<script src="script/scroll-button.js"></script>
+	<script src="script/navigation.js?v=1.2"></script>
 </body>
 </html>
-

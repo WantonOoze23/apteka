@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     productDiv.innerHTML = `
                         <div id="${product.id}">
                             <img src="${product.image}" alt="${product.name}" sizes="" srcset="">
-                            <h3>${product.name}</h3>
-                            <h4>${product.price} грн</h4>
-                            <p>${product.description}</p>
+                            <h3>Назва: ${product.name}</h3>
+                            <h4>Ціна: ${product.price} грн</h4>
+                            <p>Опис: ${product.description}</p>
                             <button class="add-to-cart">Купити</button>
                         </div>
                     `;
