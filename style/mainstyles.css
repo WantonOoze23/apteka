@@ -6,9 +6,7 @@
     --footer-a-color-hover:  darkred;
 
 }
-*:hover{
-    transition: background-color 200ms, color 200ms;
-}
+
 
 html, body {
     margin: 0;
@@ -27,14 +25,14 @@ body{
     margin-top: 100px;
 }
 
-
 .content{
     background-color: var(--content-color);
     margin: auto;
     color: #ffffff;
     margin-top: 50px;
     border-radius: 35px 35px;
-    padding: 50px 0 50px 0;
+    padding: 50px 20px 50px 20px;
+
 }
 
 .aboutus{
@@ -56,32 +54,12 @@ body{
 }
 
 .info_about {
-    flex: 2; /* Займає 2 частини простору */
     padding-left: 20px; /* Відступ з лівого боку */
+    margin-left: auto;
+    margin-right: auto;
 }
 .info_about ul a{
     color: var(--main-bg-color);
-}
-
-.info_about ul a:hover{
-    color: var(--footer-a-color-hover);
-    
-}
-
-.contact_form form {
-    display: flex;
-    flex-direction: column; /* Вертикальне розташування елементів */
-}
-
-.contact_form input {
-    padding: 10px; /* Внутрішній відступ */
-    border-radius: 5px; /* Закруглені краї */
-    border: 1px solid #ccc; /* Сіра рамка */
-    margin-top: 10px; /* Відступ зверху */
-}
-
-.contact_form input::placeholder {
-    color: #aaa; /* Колір тексту в плейсхолдері */
 }
 
 footer{
@@ -97,15 +75,29 @@ footer a{
     color: var(--footer-a-color);
 }
 
-footer a:hover{
-    color: var(--footer-a-color-hover);
-}
-
 
 @media(hover: hover){
-    
+    *:hover{
+        transition: background-color 200ms, color 200ms;
+    }
+    footer a:hover{
+        color: var(--footer-a-color-hover);
+    }
+    .info_about ul a:hover{
+        color: var(--footer-a-color-hover);
+        
+    }
 }
 
 @media(hover: none){
-    
+    *:active{
+        transition: background-color 200ms, color 200ms;
+    }
+    footer a:active{
+        color: var(--footer-a-color-hover);
+    }
+    .info_about ul a:active{
+        color: var(--footer-a-color-hover);
+        
+    }
 }
