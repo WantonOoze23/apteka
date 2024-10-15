@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
-    const selectedAnimal = urlParams.get('animal') || 'dog'; // По умолчанию 'dog', если параметр не задан
+    const selectedAnimal = urlParams.get('animal'); // По умолчанию 'dog', если параметр не задан
 
     fetchProducts(selectedAnimal); // Загружаем товары для выбранного животного
+
+    // Изначально считываем значения фильтров
+    const initialTypes = Array.from(document.querySelectorAll('.filter-type:checked')).map(checkbox => checkbox.value);
+    const initialProducers = Array.from(document.querySelectorAll('.filter-producer:checked')).map(checkbox => checkbox.value);
 
     document.getElementById('applyFilters').addEventListener('click', () => {
         const selectedTypes = Array.from(document.querySelectorAll('.filter-type:checked')).map(checkbox => checkbox.value);
@@ -41,4 +45,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert("Не вдалося завантажити товари.");
             });
     }
+
+    // Обработчик события для кнопки фильтра
+    const filterToggle = document.querySelector('.filter-toggle');
+    const leftSideFilter = document.querySelector('.left-side-filter');
+
+    // Изначально скрыть фильтры
+    leftSideFilter.style.display = 'none';
+
+    filterToggle.addEventListener('click', () => {
+        // Переключение видимости фильтра
+        if (leftSideFilter.style.display === 'block') {
+            leftSideFilter.style.display = 'none';
+            filterToggle.textContent = 'Показати фільтри'; // Изменение текста на "Показать фильтры"
+        } else {
+            leftSideFilter.style.display = 'block';
+            filterToggle.textContent = 'Закрити фільтр'; // Изменение текста на "Закрыть"
+        }
+
+        // Плавный переход
+        leftSideFilter.classList.toggle('filter-visible');
+    });
 });

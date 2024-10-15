@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Додати </title>
+    <title>Додати товари</title>
     <link rel="stylesheet" type="text/css" href="style/form.css?v=1">
 </head>
 <body>
@@ -13,6 +13,7 @@
 
     <main>
         <button id="logoutButton">Вийти</button>
+        <button><a href="index.html">Головна</a></button>
         <section>
             <form action="api/add_product.php" id="addProduct" method="post" enctype="multipart/form-data">
                 <h1>Додати</h1>
@@ -47,8 +48,8 @@
                     <br><label for="category">Тип/категорія</label>
                     <select id="category" name="category" required>
                         <option value="">Виберіть значення</option>
-                        <option value="korm">Корм</option>
-                        <option value="vacine">Вакцина</option>
+                        <option value="feed">Корм</option>
+                        <option value="vaccine">Вакцина</option>
                         <option value="medecine">Ліки</option>
                         <option value="sweties">Смаколики</option>
                         <option value="vitamins">Вітаміни</option>
@@ -97,6 +98,7 @@
                     <option value="roudants">Гризуни</option>
                     <option value="others">Інші</option>
                 </select>
+                
             </div>
 
             <h2>Список товарів</h2>

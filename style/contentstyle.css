@@ -4,16 +4,20 @@
 }
 
 .product-wraper{
-    margin-top: 100px;
+    display: flex;
 }
+
 .content{
-    width: 95%;
+    width: 97%;
     height: fit-content;
     background-color: var(--content-color);
     margin: auto;
     border-radius: 35px;
     padding: 50px 0 50px 0;
     margin-top: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
 }
 
 .products-container {
@@ -22,11 +26,18 @@
     justify-content: flex-start; /* Все элементы выравниваются по левой стороне */
     gap: 20px; /* Отступы между элементами */
     padding: auto;
-    margin: auto;
+    flex: 1; /* Позволяет контейнеру занимать оставшееся пространство */
 }
 
 .container {
-    width: calc(20% - 20px); /* 6 элементов в строку */
+    width: calc(20% - 20px); /* 5 элементов в строку */
+
+    display: block;
+    border: black solid 1px;
+    color: var(--main-text-color);
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: right;
 }
 
 .container {
@@ -36,6 +47,8 @@
     padding: 10px;
     box-sizing: border-box;
     text-align: right;
+    flex-direction: column; /* Позволяет вертикально располагать элементы */
+    justify-content: space-between; /* Размещает элементы так, чтобы кнопка была внизу */
 }
 
 .container p {
@@ -51,19 +64,113 @@
     width: 100%;
 }
 
-.container button{
-    width: 100%;
-    border-radius: 5px;
-    border: 0px;
-    background-color: var(--button-color);
-    padding: 10px;
-    margin: 0 auto; /* Центрирование кнопки */
+/* Стили для кнопки "Купити" */
+.add-to-cart {
+    width: 100%; /* Ширина кнопки 100% */
+    padding: 10px; /* Внутренний отступ */
+    border: none; /* Без обводки */
+    border-radius: 5px; /* Закругленные края кнопки */
+    background-color: var(--button-color); /* Цвет фона */
+    color: #ffffff; /* Цвет текста */
+    font-size: 1em; /* Размер шрифта */
+    cursor: pointer; /* Изменение курсора на указатель */
+    transition: background-color 0.3s; /* Плавный переход */
+    margin-top: auto; /* Сдвинуть кнопку вниз */
 }
 
-.container button:hover{
-    background-color: var(--button-color-hover);
+.add-to-cart:hover {
+    background-color: var(--button-color-hover); /* Изменение цвета при наведении */
 }
 
+.filter-toggle {
+    width: 100%; /* Задает ширину 100% от родительского контейнера */
+    border-radius: 8px; /* Увеличенный радиус для более мягких краев */
+    border: none; /* Убирает обводку */
+    background-color: var(--button-color); /* Цвет фона */
+    color: #ffffff; /* Цвет текста */
+    font-size: 1em; /* Размер шрифта */
+    padding: 12px; /* Внутренний отступ */
+    margin-bottom: 10px; /* Отступ снизу */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s, transform 0.2s; /* Плавный переход */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для создания эффекта подъема */
+}
+
+.filter-toggle:hover {
+    background-color: var(--button-color-hover); /* Цвет фона при наведении */
+    transform: translateY(-2px); /* Подъем кнопки при наведении */
+}
+
+.filter-toggle:active {
+    transform: translateY(1px); /* Небольшое смещение вниз при нажатии */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Уменьшение тени при нажатии */
+}
+
+#filter-section{
+    width: calc(20% - 20px); /* Фіксована ширина для настільних версій */
+}
+
+.left-side-filter {
+    background-color: #ffffff; /* Білий фон */
+    padding: 10px; /* Внутрішній відступ */
+    border-radius: 10px; /* Закруглені краї */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тінь */
+    position: sticky; /* Закріплення фільтра */
+    top: 10px; /* Відстань від верхньої частини */
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* Плавный переход */
+    max-height: 0; /* Изначально скрыто */
+    opacity: 0; /* Изначально скрыто */
+    overflow: hidden; /* Скрыть переполнение */
+    color: black;
+}
+
+.left-side-filter.filter-visible {
+    max-height: fit-content; /* Максимальная высота при открытии */
+    opacity: 1; /* Полная непрозрачность при открытии */
+}
+
+.left-side-filter h4 {
+    font-size: 1.5em; /* Розмір заголовка */
+}
+
+.left-side-filter h5 {
+    font-size: 1.2em; /* Розмір підзаголовка */
+}
+
+.left-side-filter label {
+    display: block; /* Відображення у вигляді блоку */
+    cursor: pointer; /* Зміна курсора на вказівник */
+    transition: color 0.3s; /* Плавний перехід кольору */
+}
+
+.left-side-filter input[type="checkbox"] {
+    margin-right: 10px; /* Відступ справа від чекбокса */
+}
+
+.left-side-filter label:hover {
+    color: #34495e; /* Зміна кольору при наведенні */
+}
+
+#applyFilters {
+    width: 100%; /* Ширина кнопки 100% */
+    margin-top: 20px;
+    padding: 10px; /* Внутрішній відступ */
+    border: none; /* Без обводки */
+    border-radius: 5px; /* Закруглені краї кнопки */
+    background-color: #34495e; /* Колір фону */
+    color: #ffffff; /* Колір тексту */
+    font-size: 1em; /* Розмір шрифту */
+    cursor: pointer; /* Зміна курсору на вказівник */
+    transition: background-color 0.3s; /* Плавний перехід */
+}
+
+#applyFilters:hover {
+    background-color: #718daa; /* Зміна кольору при наведенні */
+}
+
+.hidden {
+    display: none; /* Сховати елемент */
+}
 
 /* Для средних экранов (планшеты, небольшие ноутбуки) */
 @media (max-width: 1199px) and (min-width: 768px) {
@@ -74,23 +181,43 @@
     .container {
         width: calc(25% - 20px); /* 4 элемента в строку */
     }
+    #filter-section{
+        width: calc(25% - 20px);
+    }
 }
 
 /* Для телефонов и маленьких экранов */
 @media (max-width: 767px) {
-    .content{
+    .content {
         width: 100%;
         border-radius: 0;
     }
     .container {
-        width: calc(33.33% - 20px); /* 3 элемента в строку */
+        width: calc(50% - 20px); /* 2 элемент в строку */
     }
 
-    /* Кнопка должна занимать 100% ширины и быть по центру */
-    .container button {
-        width: 100%; /* 100% ширины кнопки */
-        padding: 10px;
-        margin: 0 auto; /* Центрирование кнопки */
-        display: block; /* Обеспечивает, что margin будет работать */
+    #filter-section{
+        width: 100%;
+    }
+    
+    .left-side-filter {
+        position: static; /* Отключение фиксации */
+        box-shadow: none; /* Без тени */
+        display: block; /* Отображение фильтра по умолчанию */
+    }
+
+    .filter-toggle {
+        display: block; /* Отображение кнопки для открытия фильтра */
+        width: 100%; /* Ширина 100% */
+        padding: 10px; /* Внутренний отступ */
+        background-color: #34495e; /* Цвет кнопки */
+        color: #ffffff; /* Цвет текста */
+        border: none; /* Без обводки */
+        border-radius: 5px; /* Закругленные края */
+        cursor: pointer; /* Изменение курсора на указатель */
+    }
+
+    .filter-toggle:hover {
+        background-color: #718daa; /* Изменение цвета при наведении */
     }
 }
