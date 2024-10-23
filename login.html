@@ -3,18 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Авторизація</title>
+
+    <link rel="stylesheet" href="style/mainstyles.css?v=1.4">
+	<link rel="stylesheet" href="style/nav_menu.css?v=1.4">
+    <link rel="stylesheet" href="style/login.css?v=1.4">
+
     <link rel="stylesheet" href="css/login.css?v=1">
+
 </head>
 <body>
-    <header>
-        <h1>Авторизація</h1>
-    </header>
+    <header class="header">
+		<a href="index.html" class="logo">VetApteka</a>
+		
+		<button class="menu-toggle" id="menuToggle">☰</button> <!-- Кнопка для открытия меню -->
+		
+		<ul class="main-nav" id="navMenu">
+			<li><a href="dogs.html?animal=dog" class="nav_btn" id="dogs_link">Собаки</a></li>
+			<li><a href="cats.html?animal=cat" class="nav_btn" id="cats_link">Коти</a></li>
+			<li><a href="rodents.html?animal=rodent" class="nav_btn" id="rodents_link">Гризуни</a></li>
+			<li><a href="birds.html?animal=bird" class="nav_btn" id="birds_link">Птахи</a></li>
+			<li><a href="fish.html?animal=fish" class="nav_btn" id="fish_link">Риби</a></li>
+			<li><a href="others.html?animal=other" class="nav_btn" id="others_link">Інші</a></li>
+			<li><a href="manager.html" class="nav_btn" id="login">Кабінет</a></li>
+		</ul>
+	</header>
+    
 
     <main>
+        <h1 id="aut_text">Авторизація</h1>
         <section>
-            <h2>Увійти</h2>
+            
             <form id="loginForm">
+                <h2>Увійти</h2>
                 <label for="username">Користувач:</label>
                 <input type="text" id="username" name="username" required>
                 <br>
@@ -26,6 +48,11 @@
         </section>
     </main>
 
+    <button id="scrollToTop" class="scroll-to-top">↑</button>
+
     <script src="script/login.js"></script>
+    
+	<script src="script/scroll-button.js"></script>
+	<script src="script/navigation.js?v=1.2"></script>
 </body>
 </html>
