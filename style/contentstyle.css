@@ -3,6 +3,10 @@
     --button-color-hover: #718daa;
 }
 
+body {
+    height: 100%;
+}
+
 .product-wraper{
     display: flex;
 }
