@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $conn->real_escape_string($_POST['name']);
     $description = $conn->real_escape_string($_POST['description']);
     $price = $conn->real_escape_string($_POST['price']);
+    $code = $conn->real_escape_string($_POST['code']);
     $category = $conn->real_escape_string($_POST['category']);
     $producer = $conn->real_escape_string($_POST['producer']);
     $animal = $conn->real_escape_string($_POST['animal']);
@@ -37,9 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-            $sql = "INSERT INTO animals (name, image, description, price, category, producer,  animal)
+            $sql = "INSERT INTO animals (name, image, description, code, price, category, producer,  animal)
 
-                    VALUES ('$name', '$target_file', '$description', '$price', '$category', '$producer',  '$animal')";
+                    VALUES ('$name', '$target_file', '$description', '$price', '$code','$category', '$producer',  '$animal')";
 
 
             if ($conn->query($sql) === TRUE) {

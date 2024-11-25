@@ -3,7 +3,7 @@ document.getElementById('deleteCarForm').addEventListener('submit', function(eve
 
     const formData = new FormData(this);
 
-    fetch('../api/remove.php', { // Заміни на свій шлях до PHP файлу
+    fetch('../api/remove.php', { 
         method: 'POST',
         body: formData
     })

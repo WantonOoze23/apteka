@@ -18,7 +18,7 @@ $types = isset($_GET['types']) ? explode(',', $_GET['types']) : [];
 $companies = isset($_GET['companies']) ? explode(',', $_GET['companies']) : [];
 
 // Базовий SQL-запит
-$sql = "SELECT id, name, image, description, price, category, producer, animal FROM animals WHERE 1=1";
+$sql = "SELECT id, name, image, description, price, code, category, producer, animal FROM animals WHERE 1=1";
 
 // Фільтрація по тварині
 if ($animal) {

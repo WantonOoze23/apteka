@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 row.innerHTML = `
                     <td>${product.id}</td>
+                    <td>${product.code || 'Не вказано'}</td>
                     <td><img src="${product.image}" alt="${product.name}" style="width: 300px; height: auto;"></td>
                     <td>${product.name}</td>
                     <td>${product.producer}</td> <!-- Відображаємо виробника -->

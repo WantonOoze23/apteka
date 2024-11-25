@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="style/mainstyles.css?v=1.4">
 	<link rel="stylesheet" href="style/nav_menu.css?v=1.4">
-    <link rel="stylesheet" type="text/css" href="style/form.css?v=1.1">
+    <link rel="stylesheet" type="text/css" href="style/form.css?v=1.3">
     
 </head>
 <body>
@@ -28,11 +28,12 @@
 	</header>
 
     <main>
-        <button id="logoutButton">Вийти</button>
-        <button><a href="index.html">Головна</a></button>
+        <div style="display: flex; justify-content: center;">
+            <button id="logout_button">Вийти</button>
+        </div>
         <section>
             <form action="api/add_product.php" id="addProduct" method="post" enctype="multipart/form-data">
-                <h1>Додати</h1>
+                <h1>Додати товар</h1>
                 <div class="input-form">
                     <label for="name">Назва товару:</label>
                     <input type="text" id="name" name="name" required><br>
@@ -46,6 +47,11 @@
                 <div class="input-form">
                     <label for="description">Опис:</label>
                     <textarea id="description" name="description" required></textarea><br>
+                </div>
+
+                <div class="input-form">
+                    <label for="code">Код товару:</label>
+                    <input type="code" id="code" name="code" required><br>
                 </div>
 
                 <div class="input-form">
@@ -90,18 +96,21 @@
                     <label for="image">Зображення:</label>
                     <input type="file" id="image" name="image" accept="image/*" required><br>
                 </div>
-                <input type="submit" value="Додати товар">
+                <button id="add_button" type="submit">Додати товар</button>
+
             </form>
 
         </section>
     
         <section id="output_form"> 
-            <h2>Форма видалення </h2>
-            <form id="deleteCarForm">
-                <label for="id">ID :</label>
-                <input type="number" id="id" name="id" required>
-                <button type="submit">Видалити </button>
-            </form>
+            <div id="delete_form">
+                <h2>Форма видалення </h2>
+                <form id="deleteCarForm">
+                    <label for="id">ID :</label>
+                    <input type="number" id="id" name="id" required>
+                    <button type="submit" >Видалити </button>
+                </form>
+            </div>
 
             <div class="filter">
                 <label for="animal">Фільтр:</label>
@@ -116,26 +125,29 @@
                 </select>
                 
             </div>
+            <div id="output_list">
 
-            <h2>Список товарів</h2>
+                <h2>Список товарів</h2>
 
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Зображення</th>
-                        <th>Назва</th>
-                        <th>Виробник</th>
-                        <th>Категорія</th>
-                        <th>Опис</th>
-                        <th>Ціна</th>
-                        <th>Тварина</th>
-                    </tr>
-                </thead>
-                <tbody id="TableBody">
-                    <!-- Дані будуть додані сюди через JavaScript -->
-                </tbody>
-            </table>
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Код</th>
+                            <th>Зображення</th>
+                            <th>Назва</th>
+                            <th>Виробник</th>
+                            <th>Категорія</th>
+                            <th>Опис</th>
+                            <th>Ціна</th>
+                            <th>Тварина</th>
+                        </tr>
+                    </thead>
+                    <tbody id="TableBody">
+                        <!-- Дані будуть додані сюди через JavaScript -->
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
 
@@ -146,13 +158,13 @@
 
     <script src="script/add-product.js"></script>
     <script src="script/remove.js"></script>
-    <script src="script/getList.js"></script>
+    <script src="script/getList.js?v=1.1"></script>
     <script src="script/filter.js"></script>
     <script src="script/check-session.js"></script>
     <script src="script/timer.js"></script>
 
     <script>
-        document.getElementById('logoutButton').addEventListener('click', function() {
+        document.getElementById('logout_button').addEventListener('click', function() {
             fetch('api/logout.php')
                 .then(response => response.json())
                 .then(data => {

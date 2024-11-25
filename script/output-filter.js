@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     productDiv.classList.add('container');
                     productDiv.innerHTML = `
                         <div id="${product.id}">
+                            <p class="code">Код: ${product.code}</p>
                             <img src="${product.image}" alt="${product.name}" sizes="" srcset="">
                             <h3>Назва: ${product.name}</h3>
                             <h4>Ціна: ${product.price} грн</h4>

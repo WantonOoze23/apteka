@@ -13,6 +13,7 @@ document.getElementById('filterAnimal').addEventListener('change', function() {
                 
                 row.innerHTML = `
                     <td>${product.id}</td>
+                    <td>${product.code}</td>
                     <td><img src="${product.image}" alt="${product.name}" style="width: 300px;"></td>
                     <td>${product.name}</td>
                     <td>${product.producer}</td>

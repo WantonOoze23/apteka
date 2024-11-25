@@ -52,6 +52,11 @@ body {
     display: -webkit-box; /* Для використання з флексбоксами */
     -webkit-line-clamp: 3; /* Кількість рядків для відображення */
     -webkit-box-orient: vertical; /* Вертикальна орієнтація */
+    font-size: 15px;
+}
+
+.code{
+    float: right;
 }
 
 .container img {

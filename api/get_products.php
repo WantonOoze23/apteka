@@ -16,7 +16,8 @@ if ($conn->connect_error) {
 $animal = isset($_GET['animal']) ? $_GET['animal'] : '';
 
 // Створюємо запит з фільтрацією, якщо вибрано тварину
-$sql = "SELECT id, name, image, description, price, category, producer, animal FROM animals";
+$sql = "SELECT id, name, image, description, price, code, category, producer, animal FROM animals";
+
 if ($animal) {
     $sql .= " WHERE animal = ?";
 }
