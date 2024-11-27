@@ -1,0 +1,9 @@
+mihistory@ukr.net
+511EUPTC64_|Q:(8+
+
+
+db 
+name: chfdbd9c8b_apteka
+
+login: chfdbd9c8b_manager
+password: 511EUPTC64

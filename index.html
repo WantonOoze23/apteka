@@ -6,11 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 
-	<link rel="stylesheet" href="style/nav_menu.css?v=1.2">
-	<link rel="stylesheet" href="style/mainstyles.css?v=1.2">
+	<link rel="stylesheet" href="style/nav_menu.css?v=1.4">
+	<link rel="stylesheet" href="style/mainstyles.css?v=2.0">
 
+	<link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+	
 	<title>VetApteka</title>
 
+	
 
 </head>
 <body>
@@ -19,7 +22,7 @@
 		<a href="index.html" class="logo">VetApteka</a>
 		
 		<button class="menu-toggle" id="menuToggle">☰</button> <!-- Кнопка для открытия меню -->
-		
+		 
 		<ul class="main-nav" id="navMenu">
 			<li><a href="dogs.html?animal=dog" class="nav_btn" id="dogs_link">Собаки</a></li>
 			<li><a href="cats.html?animal=cat" class="nav_btn" id="cats_link">Коти</a></li>
@@ -33,36 +36,32 @@
 
 
 	<div class="warp">
-		<section class="aboutus">
+		<section class="main_info">
 			<div class="our_location">
-				<h1 id="find_us_here" style="color: white; text-align: center;">Ви можете знайти нас тут</h1>
-				<div id="location">
+				<div id="google_src">
+					<h1 id="find_us_here" style="color: white; text-align: center;">Ви можете знайти нас тут</h1>
 					<h1 style="text-align: center;">Соломʼянка</h1>
+
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d534.431093358797!2d30.479578492903993!3d50.418800475398434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cecfc3b1513b%3A0x8e58294a990d61!2z0JLQtdGC0LXRgNC40L3QsNGA0L3QsNGPINCw0L_RgtC10LrQsCDQvdCwINCh0L7Qu9C-0LzQtdC90LrQtQ!5e0!3m2!1sru!2sua!4v1732544429639!5m2!1sru!2sua" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="geo_frame"></iframe>
+				
 				</div>
 
-				<div class="google_src">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2542.1894666170897!2d30.47689987609599!3d50.4189414896326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cecfc3b150d5%3A0xbbfc0c7e57b0ae36!2z0YPQuy4g0JDQvdC00YDQtdGPINCT0L7Qu9C-0LLQutC-LCAxMiwg0JrQuNC10LIsIDAyMDAw!5e0!3m2!1sru!2sua!4v1698427900920!5m2!1sru!2sua" width="40%" height="450" style="border:0; border-radius: 20px; margin-left: 9%; " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="geo_frame"></iframe>
-					
-					<div class="info_about">
-						<p>вул. Андрія Головка 12, Київ</p>
-						<ul>
-							<li class="info_sized">Час роботи:</li>
-							<li>ПН-ПТ - 10.00-20.00</li>
-							<li>СБ    - 10.00-19.00</li>
-							<li>НД    - 10.00-18.00</li>
-							
-							<br>
-							
-							<li class="info_sized">Контактні номери:</li>
-							<li><a href="tel:+380443621210">044-362-12-10</a></li>
-							<li><a href="tel:+380502261112">050-226-11-12</a></li>
-							<li><a href="tel:+380503847779">050-384-77-79</a></li>
-							
-						</ul>
+				<div id="info_about">
+					<p>вул. Андрія Головка 12, Київ</p>
+					<ul>
+						<li class="info_sized">Час роботи:</li>
+						<li>ПН-ПТ - 10.00-20.00</li>
+						<li>СБ    - 10.00-19.00</li>
+						<li>НД    - 10.00-18.00</li>
 						
-					</div>
-					<!--Добавить функцию отправки на почту-->
-					
+						<br>
+						
+						<li class="info_sized">Контактні номери:</li>
+						<li><a href="tel:+380443621210">044-362-12-10</a></li>
+						<li><a href="tel:+380502261112">050-226-11-12</a></li>
+						<li><a href="tel:+380503847779">050-384-77-79</a></li>
+						
+					</ul>
 					
 				</div>
 			</div>
@@ -103,13 +102,15 @@
 				<li>Наша пошта <a href="mailto:mine16978@gmail.com">mine16978@gmail.com</a></li>
 			</ul>
 
+			<h3>&copy; www.vetapt.biz 2013-<span id="year"></span></h3>
 			<h2>Всі права захищені &copy;</h2>
-			<h3>Сподобався сайт, звертайтесь до нашого <a href="https://www.t.me/sitesfromsudent" target="_blank">Телеграму</a></h3>
-
 		</div>
 
 	</footer>
 
+	<script>
+		document.getElementById("year").textContent = new Date().getFullYear();
+	  </script>
 	<button id="scrollToTop" class="scroll-to-top">↑</button>
 	<script src="script/scroll-button.js"></script>
 	<script src="script/navigation.js?v=1.2"></script>

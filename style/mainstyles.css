@@ -4,7 +4,7 @@
     --main-text-color:  #ffffff;
     --footer-a-color: cornsilk;
     --footer-a-color-hover:  darkred;
-
+    
 }
 
 
@@ -20,9 +20,51 @@ body{
 }
 
 .warp{
-    width: 95%;
+    width: 97%;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 80px;
+}
+
+.main_info{
+    background-color: black;
+    border-radius: 35px;
+    padding: 30px;
+    color:#ffffff;
+    height: fit-content;
+}
+
+.our_location{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.geo_frame{
+    height: 450px;
+    width: 100%;
+    border: none;
+    border-radius: 20px; 
+
+}
+
+#google_src, #info_about{
+    flex: 1;
+    width: 100%;
+    
+}
+
+#info_about{
+    margin: auto;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+#info_about p{
+    font-size: 1.5em;
+}
+
+#info_about a{
+    color: var(--main-bg-color);
 }
 
 .content{
@@ -32,34 +74,14 @@ body{
     margin-top: 50px;
     border-radius: 35px 35px;
     padding: 50px 20px 50px 20px;
-
 }
 
-.aboutus{
-    background-color: black;
-    border-radius: 35px;
-    padding: 30px;
-    color:#ffffff;
+.about_us h1{
+    font-size: 2em;
 }
 
-.google_src {
-    display: flex;
-    justify-content: space-between; /* Розміщення елементів зліва та справа */
-    margin-bottom: 20px; /* Відступ знизу */
-}
-
-.contact_form {
-    flex: 1; /* Займає 1 частину простору */
-    padding-right: 20px; /* Відступ з правого боку */
-}
-
-.info_about {
-    padding-left: 20px; /* Відступ з лівого боку */
-    margin-left: auto;
-    margin-right: auto;
-}
-.info_about ul a{
-    color: var(--main-bg-color);
+.about_us p{
+    font-size: 1.3em;
 }
 
 footer{
@@ -100,6 +122,84 @@ footer a{
 }
 
 
+@media (max-width: 1199px) and (min-width: 768px) {
+    .warp{
+        width: 100%;
+        margin-top: 100px;
+    }
+
+    .content{
+        background-color: var(--content-color);
+        margin: auto;
+        color: #ffffff;
+        margin-top: 50px;
+        border-radius: 0px;
+        padding: 50px 20px 50px 20px;
+    
+    }
+
+    .main_info{
+        background-color: black;
+        border-radius: 0px;
+        padding: 30px;
+        color:#ffffff;
+    }
+
+
+}
+
+/* Для телефонов и маленьких экранов */
+@media (max-width: 767px) {
+    .warp {
+        width: 100%; /* Використовувати всю ширину екрана */
+        margin-top: 100px;
+    }
+
+    .content {
+        background-color: var(--content-color);
+        margin: auto;
+        color: #ffffff;
+        margin-top: 50px;
+        border-radius: 0px;
+        padding: 20px; /* Менший внутрішній відступ для мобільних */
+    }
+
+    .main_info {
+        background-color: black;
+        border-radius: 0px;
+        padding: 20px; /* Зменшення відступів */
+        color: #ffffff;
+        width: 100%; /* Використовувати всю ширину */
+        box-sizing: border-box; /* Враховувати padding у ширині */
+    }
+
+    .about_us h1{
+        font-size: 2em;
+        text-align: center;
+    }
+    
+
+    .our_location {
+        flex-direction: column; /* Стекова орієнтація для маленьких екранів */
+        gap: 10px;
+    }
+
+    .geo_frame {
+        width: 100%; /* Ширина кадру на всю ширину контейнера */
+        height: 300px; /* Зменшена висота для мобільних пристроїв */
+    }
+
+    #google_src,
+    #info_about {
+        width: 100%; /* Адаптація блоків до ширини */
+    }
+
+    #info_about ul {
+        padding-left: 0; /* Зменшення внутрішніх відступів */
+        list-style-type: none; /* Прибирання маркерів списку */
+    }
+}
+
 @media(hover: hover){
     *:hover{
         transition: background-color 200ms, color 200ms;
@@ -107,13 +207,14 @@ footer a{
     footer a:hover{
         color: var(--footer-a-color-hover);
     }
-    .info_about ul a:hover{
+    #info_about ul a:hover{
         color: var(--footer-a-color-hover);
         
     }
     .scroll-to-top:hover {
         background-color: #718daa;
     }
+
 }
 
 @media(hover: none){
@@ -123,7 +224,7 @@ footer a{
     footer a:active{
         color: var(--footer-a-color-hover);
     }
-    .info_about ul a:active{
+    #info_about ul a:active{
         color: var(--footer-a-color-hover);
         
     }
