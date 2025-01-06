@@ -1,15 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "root"; // Ваш логін MySQL
-$password = ""; // Ваш пароль MySQL
-$dbname = "apteka";
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-// Підключення до бази даних
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Перевірка підключення
+// Подключение к базе данных
+require_once 'db_connection.php';
 if ($conn->connect_error) {
-    die("Помилка підключення: " . $conn->connect_error);
+    die("Ошибка подключения: " . $conn->connect_error);
 }
 
 // Обробка запиту POST

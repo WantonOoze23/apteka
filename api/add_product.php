@@ -1,16 +1,13 @@
 <?php
-$servername = "localhost";
-$username = "root"; // Ваш логін MySQL
-$password = ""; // Ваш пароль MySQL
-$dbname = "apteka";
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-// Підключення до бази даних
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Перевірка підключення
+// Подключение к базе данных
+require_once 'db_connection.php';
 if ($conn->connect_error) {
-    die("Помилка підключення: " . $conn->connect_error);
+    die("Ошибка подключения: " . $conn->connect_error);
 }
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $conn->real_escape_string($_POST['name']);
@@ -26,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-        if ($_FILES["image"]["size"] > 5000000) {
+        if ($_FILES["image"]["size"] > 10000000) {
             echo json_encode(['success' => false, 'error' => "Файл занадто великий."]);
             exit;
         }

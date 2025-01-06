@@ -1,3 +1,14 @@
+<?php
+session_start(); // Стартуем сессию
+
+// Проверяем, авторизован ли пользователь
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    // Если нет, перенаправляем на страницу логина
+    header("Location: /manager/login.html");
+    exit; // Завершаем выполнение скрипта
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ua">
 <head>
@@ -5,34 +16,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Додати товари</title>
 
-    <link rel="stylesheet" href="style/mainstyles.css?v=1.4">
-	<link rel="stylesheet" href="style/nav_menu.css?v=1.4">
-    <link rel="stylesheet" type="text/css" href="style/form.css?v=1.3">
+    <link rel="stylesheet" href="../style/mainstyles.css?v=1.4">
+	<link rel="stylesheet" href="../style/nav_menu.css?v=1.4">
+    <link rel="stylesheet" type="text/css" href="../style/form.css?v=1.3">
     
     <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
 
 </head>
 <body>
     <header class="header">
-		<a href="index.html" class="logo">VetApteka</a>
+		<a href="../index.html" class="logo">VetApteka</a>
 		
-		<button class="menu-toggle" id="menuToggle">☰</button> <!-- Кнопка для открытия меню на смартвоне-->
+		<button class="menu-toggle" id="menuToggle">☰</button> <!-- Кнопка для открытия меню -->
 		
 		<ul class="main-nav" id="navMenu">
-			<li><a href="dogs.html?animal=dog" class="nav_btn" id="dogs_link">Собаки</a></li>
-			<li><a href="cats.html?animal=cat" class="nav_btn" id="cats_link">Коти</a></li>
-			<li><a href="rodents.html?animal=rodent" class="nav_btn" id="rodents_link">Гризуни</a></li>
-			<li><a href="birds.html?animal=bird" class="nav_btn" id="birds_link">Птахи</a></li>
-			<li><a href="fish.html?animal=fish" class="nav_btn" id="fish_link">Риби</a></li>
-			<li><a href="others.html?animal=other" class="nav_btn" id="others_link">Інші</a></li>
-			<li><a href="manager.html" class="nav_btn" id="login">Кабінет</a></li>
+			<li><a href="../dogs.html?animal=dog" class="nav_btn" id="dogs_link">Собаки</a></li>
+			<li><a href="../cats.html?animal=cat" class="nav_btn" id="cats_link">Коти</a></li>
+			<li><a href="../rodents.html?animal=rodent" class="nav_btn" id="rodents_link">Гризуни</a></li>
+			<li><a href="../birds.html?animal=bird" class="nav_btn" id="birds_link">Птахи</a></li>
+			<li><a href="../fish.html?animal=fish" class="nav_btn" id="fish_link">Риби</a></li>
+			<li><a href="../others.html?animal=other" class="nav_btn" id="others_link">Інші</a></li>
+			<li><a href="/manager.php" class="nav_btn" id="login">Кабінет</a></li>
 		</ul>
 	</header>
 
     <main>
-        <div style="display: flex; justify-content: center;">
-            <button id="logout_button">Вийти</button>
-        </div>
+            <form action="../api/logout.php" method="POST">
+                <button type="submit">Вийти</button>
+            </form>
         <section>
             <form action="api/add_product.php" id="addProduct" method="post" enctype="multipart/form-data">
                 <h1>Додати товар</h1>
@@ -155,28 +166,13 @@
 
     <button id="scrollToTop" class="scroll-to-top">↑</button>
 
-	<script src="script/scroll-button.js"></script>
-	<script src="script/navigation.js?v=1.2"></script>
+	<script src="../script/scroll-button.js"></script>
+	<script src="../script/navigation.js?v=1.2"></script>
 
-    <script src="script/add-product.js"></script>
-    <script src="script/remove.js"></script>
-    <script src="script/getList.js?v=1.1"></script>
-    <script src="script/filter.js"></script>
-    <script src="script/check-session.js"></script>
-    <script src="script/timer.js"></script>
-
-    <script>
-        document.getElementById('logout_button').addEventListener('click', function() {
-            fetch('api/logout.php')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        window.location.href = 'login.html';
-                    }
-                })
-                .catch(error => console.error('Помилка при виході:', error));
-        });
-    </script>
+    <script src="./manager_script/add-product.js"></script>
+    <script src="./manager_script/remove.js"></script>
+    <script src="./manager_script/getList.js?v=1.1"></script>
+    <script src="../script/filter.js"></script>
 
 </body>
 </html>

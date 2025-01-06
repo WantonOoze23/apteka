@@ -2,7 +2,7 @@ document.getElementById('addProduct').addEventListener('submit', function(event)
     event.preventDefault();
     const formData = new FormData(this);
 
-    fetch('../api/add_product.php', {
+    fetch('/api/add_product.php', {
         method: 'POST',
         body: formData
     })

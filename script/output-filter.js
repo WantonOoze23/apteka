@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
-    const selectedAnimal = urlParams.get('animal'); // По умолчанию 'dog', если параметр не задан
+    const selectedAnimal = urlParams.get('animal') || 'dog'; // По умолчанию 'dog', если параметр не задан
 
     fetchProducts(selectedAnimal); // Загружаем товары для выбранного животного
 
@@ -26,8 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 productsContainer.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
 
                 data.forEach(product => {
-                    const productDiv = document.createElement('div');
+                    const productDiv = document.createElement('a');
                     productDiv.classList.add('container');
+                    productDiv.href = `../product/product-details.html?id=${product.id}`; // Ссылка на страницу с деталями товара
                     productDiv.innerHTML = `
                         <div id="${product.id}">
                             <p class="code">Код: ${product.code}</p>
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <h3>Назва: ${product.name}</h3>
                             <h4>Ціна: ${product.price} грн</h4>
                             <p>Опис: ${product.description}</p>
-                            <button class="add-to-cart">Купити</button>
+                            <!---<button class="add-to-cart">Купити</button>-->
                         </div>
                     `;
                     productsContainer.appendChild(productDiv);

@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     if ($username === $valid_username && $password === $valid_password) {
-        $_SESSION['loggedin'] = true;
+        $_SESSION['logged_in'] = true;
         echo json_encode(['success' => true]);
     } else {
         echo json_encode(['success' => false]);

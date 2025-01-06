@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('../api/get_products.php') // Заміни на свій шлях до PHP файлу
+    fetch('/api/get_products.php') // Заміни на свій шлях до PHP файлу
         .then(response => response.json())
         .then(data => {
             const tableBody = document.getElementById('TableBody');

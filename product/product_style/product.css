@@ -1,0 +1,37 @@
+.product-detail{
+    width: 95%;
+    margin: auto;
+    margin-top: 80px;
+    padding-top: 50px;
+    border-radius: 35px;
+    background-color: var(--content-color);
+    color: var(--main-text-color);
+    padding-bottom: 50px;
+}
+
+.product-detail img {
+    display: block;
+    margin: 0 auto; /* Добавлено для центрирования изображения */
+    width: 60%;
+    height: auto;
+}
+
+.product-detail h1 {
+    font-size: 2.5em; /* Увеличение размера шрифта */
+    margin-bottom: 20px; /* Отступ снизу *
+}
+
+.product-detail h4 {
+    font-size: 1.2em; /* Размер шрифта для подзаголовков */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+.product-detail p {
+    font-size: 1em; /* Размер шрифта для абзацев */
+    line-height: 1.6; /* Межстрочный интервал */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.product-detail h1, .product-detail h4, .product-detail p {
+    margin-left: 50px;
+}
